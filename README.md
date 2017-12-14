@@ -2,7 +2,7 @@
 
 Here are all of my Config files for [Home Assistant](https://www.home-assistant.io) !  It's a work in progress.
 
-Please hit the :star: to keep up with everything!  Also check out my [youtube channel](https://www.youtube.com/channel/UCSKQutOXuNLvFetrKuwudpg) for tons of videos and tutorials!!!!
+Please hit the :star: to keep up with everything!  Also check out and subscribe to my [youtube channel](https://www.youtube.com/channel/UCSKQutOXuNLvFetrKuwudpg) for tons of videos and tutorials!!!!  If you have any video ideas, let me know!
 
 ![gh-banner](https://user-images.githubusercontent.com/34514709/33998727-0b5ff414-e0ae-11e7-81ac-2a71630ff33e.png)
 
@@ -35,4 +35,6 @@ This is my [Home Assistant](https://www.home-assistant.io) Configuration running
 * [Incipio Smart outlet adapter](https://www.amazon.com/Incipio-CommandKit-Wireless-Adapter-Automation/dp/B01AO9Z2K4/ref=sr_1_1?s=wireless&ie=UTF8&qid=1513271169&sr=1-1&keywords=incipio+smart+plug)
 * [WeMo Smart plug](https://www.amazon.com/WeMo-F7C027fcAPL-Available-Discontinued-Manufacturer/dp/B0089WFPRO/ref=sr_1_3?s=wireless&ie=UTF8&qid=1513271216&sr=1-3&keywords=wemo+smart+plug)
 * [LIFX Light strip](https://www.amazon.com/LIFX-Adjustable-Multicolor-Dimmable-Assistant/dp/B073168F4Y/ref=sr_1_1?s=dmusic&ie=UTF8&qid=1513271276&sr=8-1&keywords=lifx+light+strip) - used to backlight the tv
-* [LIFX Lightbulbs] (https://www.amazon.com/LIFX-800-A19-Adjustable-Whites-Dimmable/dp/B00XUW0ZFU/ref=sr_1_4?s=dmusic&ie=UTF8&qid=1513271354&sr=8-4&keywords=lifx+light+bulb)
+* [LIFX Lightbulbs](https://www.amazon.com/LIFX-800-A19-Adjustable-Whites-Dimmable/dp/B00XUW0ZFU/ref=sr_1_4?s=dmusic&ie=UTF8&qid=1513271354&sr=8-4&keywords=lifx+light+bulb)
+* [Lulzbot Mini 3d printer](https://www.amazon.com/LulzBot-Mini-Desktop-3D-Printer/dp/B00S54E1AI/ref=sr_1_1?s=dmusic&ie=UTF8&qid=1513271399&sr=8-1&keywords=lulzbot+mini)
+* [iHome 5-1 Smartmonitor](https://www.amazon.com/iHome-iSS50-Smartmonitor-monitoring-anywhere/dp/B01LZUSJ26/ref=sr_1_3?ie=UTF8&qid=1513277888&sr=8-3&keywords=ihome+sensor)
