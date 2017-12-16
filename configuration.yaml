@@ -32,7 +32,7 @@ recorder:
 map:
 
 sun:
-
+ 
 climate:
   platform: honeywell
   username: !secret email
