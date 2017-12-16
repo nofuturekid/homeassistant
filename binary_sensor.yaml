@@ -1,0 +1,92 @@
+  - platform: command_line
+    scan_interval: 5
+    name: livingroomtv
+    command: ping -W 1 -c 1 10.10.10.14 > /dev/null 2>&1 && echo success || echo fail
+    device_class: connectivity
+    payload_on: "success"
+    payload_off: "fail"
+
+  - platform: command_line
+    scan_interval: 5
+    name: lr-bluray
+    command: ping -W 1 -c 1 10.10.10.16 > /dev/null 2>&1 && echo success || echo fail
+    device_class: connectivity
+    payload_on: "success"
+    payload_off: "fail"
+
+  - platform: command_line
+    scan_interval: 5
+    name: ps3
+    command: ping -W 1 -c 1 10.10.10.41 > /dev/null 2>&1 && echo success || echo fail
+    device_class: connectivity
+    payload_on: "success"
+    payload_off: "fail"
+
+  - platform: command_line
+    scan_interval: 5
+    name: xbox360
+    command: ping -W 1 -c 1 10.10.10.45 > /dev/null 2>&1 && echo success || echo fail
+    device_class: connectivity
+    payload_on: "success"
+    payload_off: "fail"
+
+  - platform: command_line
+    scan_interval: 5
+    name: wii
+    command: ping -W 1 -c 1 10.10.10.40 > /dev/null 2>&1 && echo success || echo fail
+    device_class: connectivity
+    payload_on: "success"
+    payload_off: "fail"
+
+  - platform: command_line
+    name: mqtt_server
+    command: sudo systemctl status mosquitto.service | awk 'FNR==3 { print $3 }'
+    device_class: connectivity
+    payload_on: "(running)"
+    payload_off: "(dead)"
+
+  - platform: command_line
+    name: hadashboard
+    command: sudo systemctl status appdaemon.service | awk 'FNR==3 { print $3 }'
+    device_class: connectivity
+    payload_on: "(running)"
+    payload_off: "(dead)"
+
+  - platform: command_line
+    name: Homebridge
+    command: sudo systemctl status homebridge@adrian.service | awk 'FNR==3 { print $3 }'
+    device_class: connectivity
+    payload_on: "(running)"
+    payload_off: "(dead)"
+
+  - platform: command_line
+    name: Dasher
+    command: sudo systemctl status dasher@adrian.service | awk 'FNR==3 { print $3 }'
+    device_class: connectivity
+    payload_on: "(running)"
+    payload_off: "(dead)"
+
+  - platform: command_line
+    name: firetv_server
+    command: sudo systemctl status firetv-server.service | awk 'FNR==3 { print $3 }'
+    device_class: connectivity
+    payload_on: "(running)"
+    payload_off: "(dead)"
+
+  - platform: template
+    sensors:
+      jarvis_cpu_alert:
+        friendly_name: Jarvis CPU above 80
+        value_template: '{{ states.sensor.cpu_used.state | float > 80 }}'      
+      plex_cpu_alert:
+        friendly_name: Plex CPU above 80
+        value_template: '{{ states.sensor.plex_cpu.state | float > 80 }}'
+      macpro_cpu_alert:
+        friendly_name: Mac Pro CPU above 80
+        value_template: '{{ states.sensor.mac_pro_cpu.state | float > 80 }}'
+      glasses_cpu_alert:
+        friendly_name: Glasses CPU above 80
+        value_template: '{{ states.sensor.glasses_cpu.state | float > 80 }}'
+      unifi_cpu_alert:
+        friendly_name: Unifi CPU above 80
+        value_template: '{{ states.sensor.unifi_cpu.state | float > 80 }}'
