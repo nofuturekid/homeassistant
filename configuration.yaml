@@ -1,0 +1,172 @@
+homeassistant:
+  name: HASS
+  latitude: !secret lat
+  longitude: !secret long
+  elevation: !secret elev
+  unit_system: imperial
+  time_zone: America/Chicago
+  customize: !include customize.yaml
+
+frontend:
+  themes: !include_dir_merge_named themes/
+
+config:
+
+http:
+  api_password: !secret http_password
+  ssl_certificate: !secret ssl_cert
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
+
+updater:
+  include_used_components: true
+
+discovery:
+
+history:
+logger:
+logbook:
+recorder:
+  db_url: !secret db_url 
+
+map:
+
+sun:
+
+climate:
+  platform: honeywell
+  username: !secret email
+  password: !secret pw
+  unit_of_measurement: "°F"
+  region: us
+  scan_interval: 600
+
+media_player:
+  - platform: plex
+    host: 10.10.10.10
+    name: Plex-Server
+  - platform: lg_netcast
+    host: 10.10.10.14
+    name: 'Livingroom TV'
+    access_token: !secret lg_token
+  - platform: firetv
+    name: 'Bedroom Firetv'
+    device: bedroom-firetv
+  - platform: firetv
+    name: 'Livingroom Firetv'
+    device: livingroom-firetv
+  - platform: roku
+    name: 'Kitchen Roku'
+    host: 10.10.10.13
+
+input_number:
+  lr_dimmer:
+    name: LR Brightness
+    initial: 5
+    min: 1
+    max: 99
+    step: 1
+#  gr_dimmer:
+#    name: GR Brightness  
+#    initial: 5
+#    min: 1
+#    max: 254
+#    step: 1
+
+usps:
+  username: !secret usps_user
+  password: !secret usps_pw
+
+skybell:
+  username: !secret email
+  password: !secret pw
+
+device_tracker:
+  - platform: unifi
+    host: 10.10.10.8
+    username: !secret unifi_user
+    password: !secret unifi_pw
+    verify_ssl: 'False'
+    track_new_devices: false
+  - platform: ping
+    hosts:
+      ap1: 10.10.10.6
+      ap2: 10.10.10.7
+      unifi: 10.10.10.8
+      camera_dvr: 10.10.10.9
+      plex: 10.10.10.10
+      plex2: 10.10.10.12
+      livingroomtv: 10.10.10.14
+      main_mac: 10.10.10.20
+      livingroom_hub: 10.10.10.105
+      glasses: 10.10.10.106
+      huehub: 10.10.10.113
+
+mqtt:
+  broker: localhost
+  protocol: 3.1
+  keepalive: 60
+  client_id: hass-1
+  username: !secret mqtt_user
+  password: !secret mqtt_pw
+
+
+tts:
+  - platform: google
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - !secret telegram_chat_id    
+
+emulated_hue:
+  type: alexa
+  host_ip: 10.10.10.102
+  listen_port: 8300
+  expose_by_default: false
+  exposed_domains:
+    - input_boolean
+    - script
+    - switch
+
+ios:
+  push:
+    categories:
+      - name: kitchenlights
+        identifier: kitchenlights
+        actions:
+          - identifier: LIGHTSOFF
+            title: "Turn lights off"
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+      - name: livingroomlights
+        identifier: livingroomlights
+        actions:
+          - identifier: LIGHTSOFF
+            title: "Turn lights off"
+            activationMode: 'background'
+            authenticationRequired: no
+            destructive: yes
+            behavior: 'default'
+
+alexa:
+
+sensor: !include sensor.yaml
+notify: !include notify.yaml
+camera: !include cameras.yaml
+binary_sensor: !include binary_sensor.yaml
+input_boolean: !include input_boolean.yaml
+input_select:  !include input_select.yaml
+intent_script: !include alexa.yaml
+light: !include light.yaml
+shell_command: !include shell_command.yaml
+group: !include_dir_merge_named group_configs
+automation: !include automations.yaml
+remote:  !include remote.yaml
+script: !include_dir_merge_named script_configs
+switch: !include switch.yaml
+weblink: !include weblinks.yaml
+zone: !include zones.yaml
