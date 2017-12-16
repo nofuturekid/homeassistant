@@ -1,0 +1,29 @@
+  gameroom_motion:
+    name: Motion detected in Gameroom
+    initial: off
+
+  carport_motion:
+    name: Motion detected by carport
+    initial: off
+
+  frontdoor_motion:
+    name: Motion detected at front door
+    initial: off
+
+  side_motion:
+    name: Motion detected at side
+    initial: off
+
+  front1_motion:
+    name: Motion detected at front1
+    initial: off
+
+  front2_motion:
+    name: Motion detected at front2
+    initial: off
+
+  bedroom_lamp:
+    name: "Adrian's Bedroom Lamp"
+
+  bedroom_lamp2:
+    name: "Tamara's Bedroom Lamp"
