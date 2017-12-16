@@ -73,9 +73,9 @@ input_number:
 #    max: 254
 #    step: 1
 
-usps:
-  username: !secret usps_user
-  password: !secret usps_pw
+#usps:
+#  username: !secret usps_user
+#  password: !secret usps_pw
 
 skybell:
   username: !secret email
