@@ -1,0 +1,23 @@
+  - id: set_tstat_a_mode
+    alias: Set Thermostat A Mode Selector
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: input_select.thermostat_a_mode
+    action:
+      service: climate.set_operation_mode
+      entity_id: climate.thermostat_a
+      data_template:
+        operation_mode: "{{ states('input_select.thermostat_a_mode') }}"
+
+  - id: set_tstat_b_mode
+    alias: Set Thermostat B Mode Selector
+    initial_state: 'on'
+    trigger:
+      platform:  state
+      entity_id: input_select.thermostat_b_mode
+    action:
+      service: climate.set_operation_mode
+      entity_id: climate.thermostat_b
+      data_template:
+        operation_mode: "{{ states('input_select.thermostat_b_mode') }}"

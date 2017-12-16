@@ -1,0 +1,388 @@
+  - id: outside_alert
+    alias: Outside Alert
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.front1_motion
+        to: 'on'
+      - platform: state
+        entity_id: input_boolean.front2_motion
+        to: 'on'
+      - platform: state
+        entity_id: input_boolean.side_motion
+        to: 'on'
+    condition:
+      - condition: time
+        after: '23:00:00'
+        before: '06:00:00'
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.notification_3
+
+  - id: carport_alert
+    alias: Carport - Alert
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.carport_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: time
+          after: '23:00:00'
+          before: '06:00:00'
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: 'device_tracker.adriansiphone'
+              state: 'not_home'
+            - condition: state
+              entity_id: 'device_tracker.tamarasiphone'
+              state: 'not_home'
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.notification_2
+
+  - id: carport_alert_firetv
+    alias: Carport - Alert - FireTV
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.carport_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'standby'
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'idle'
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'play'
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'pause'
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.firetv_carport_notify
+
+  - id: frontdoor_alert_open
+    alias: Frontdoor - Alert - Open
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door
+        to: 'open'
+        for:
+          minutes: 30
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.notification
+
+  - id: frontdoor_alert
+    alias: Frontdoor - Alert
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door_knock
+        to: 'active'
+      - platform: state
+        entity_id: sensor.front_door
+        to: 'open'
+      - platform: state
+        entity_id: input_boolean.frontdoor_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: time
+          after: '23:00:00'
+          before: '06:00:00'
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: 'device_tracker.adriansiphone'
+              state: 'not_home'
+            - condition: state
+              entity_id: 'device_tracker.tamarasiphone'
+              state: 'not_home'
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.notification
+
+  - id: frontdoor_alert_firetv
+    alias: Frontdoor - Alert - FireTV
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.front_door_knock
+        to: 'active'
+      - platform: state
+        entity_id: sensor.front_door
+        to: 'open'
+      - platform: state
+        entity_id: input_boolean.frontdoor_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'standby'
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'idle'
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'play'
+        - condition: state
+          entity_id: 'media_player.bedroom_firetv'
+          state: 'pause'
+    action:
+      service: script.turn_on
+      data:
+        entity_id: script.firetv_frontdoor_notify
+
+  - id: jarvis_cpu_alert
+    alias: Jarvis CPU Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.jarvis_cpu_alert
+      to: 'on'
+      for:
+        minutes: 5
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: "Jarvis' CPU has been above 80% for 5 minutes!"
+
+  - id: plex_cpu_alert
+    alias: Plex CPU Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.plex_cpu_alert
+      to: 'on'
+      for:
+        minutes: 5
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: "Plex's CPU has been above 80% for 5 minutes!"
+
+  - id: macpro_cpu_alert
+    alias: Mac Pro CPU Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.macpro_cpu_alert
+      to: 'on'
+      for:
+        minutes: 5
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: "Mac Pro's CPU has been above 80% for 5 minutes!"
+
+  - id: glasses_cpu_alert
+    alias: Glasses CPU Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.glasses_cpu_alert
+      to: 'on'
+      for:
+        minutes: 5
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: "Glasses' CPU has been above 80% for 5 minutes!"
+
+  - id: unifi_cpu_alert
+    alias: Unifi CPU Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.unifi_cpu_alert
+      to: 'on'
+      for:
+        minutes: 5
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: "Unifi's CPU has been above 80% for 5 minutes!"
+
+  - id: mqtt_server_alert
+    alias: MQTT Server Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.mqtt_server
+      to: 'off'
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: 'MQTT Server is down!'
+
+  - id: hadashboard_alert
+    alias: haDashboard Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.hadashboard
+      to: 'off'
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: 'haDashboard is down!'
+
+  - id: homebridge_alert
+    alias: Homebridge Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.homebridge
+      to: 'off'
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: 'Homebridge is down!'
+
+  - id: dasher_alert
+    alias: Dasher Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.dasher
+      to: 'off'
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: 'Dasher is down!'
+
+  - id: firetv_alert
+    alias: FireTV Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.firetv_server
+      to: 'off'
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: 'FireTV-Server is down!'
+
+  - id: apple_home_hub_alert
+    alias: Apple Home Hub Alert
+    initial_state: 'on'
+    trigger:
+      platform: state
+      entity_id: sensor.apple_home_hub
+      to: 'Offline'
+    action:
+      - service: notify.alert_adrian
+        data:
+          message: 'Apple Home Hub is down!'
+
+#  - id: you_got_mail
+#    alias: you_got_mail
+#    initial_state: 'on'
+#    trigger:
+#      platform: time
+#      at: '12:00:00'
+#    action:
+#      - service: notify.ios_adrians_iphone
+#        data:
+#          message: Today, there will be {{ states("sensor.usps_mail") }} piece(s) of mail delivered!
+#          data:
+#            attachment:
+#              content-type: jpeg
+#            push:
+#              category: camera
+#            entity_id: camera.usps_mail
+
+#  - id: delete_usps_pickle
+#    alias: delete_usps_pickle
+#    initial_state: 'on'
+#    trigger:
+#      platform: time
+#      at: '06:00:00'
+#    action:
+#      - service: shell_command.delete_usps_pickle
+#      - service: notify.ios_adrians_iphone
+#        data:
+#          message: 'usps.pickle file has been deleted!'
+
+  - id: rain_radar_alert
+    alias: 'Rain Radar Alert'
+    initial_state: 'on'
+    trigger:
+      platform: numeric_state
+      entity_id: sensor.dark_sky_nearest_storm_distance
+      below: 5
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.adriansiphone'
+          state: 'not_home'
+        - condition: state
+          entity_id: 'device_tracker.tamarasiphone'
+          state: 'not_home'
+    action:
+      - service: script.turn_on
+        data:
+          entity_id: script.rain_radar_push
+
+###ACTIONABLE PUSH MESSAGE
+  - id: action_push_message
+    alias: 'Action Push Message'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: light.kitchen_lights
+        to: 'on'
+        for:
+          minutes: 30
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: 'device_tracker.adriansiphone'
+          state: 'not_home'
+        - condition: state
+          entity_id: 'device_tracker.tamarasiphone'
+          state: 'not_home'
+    action:
+      service: notify.ios_adrians_iphone
+      data:
+        message: 'The kitchen lights are still on!'
+        data:
+          push:
+            badge: 0
+            category: "kitchenlights"
+          action_data:
+            entity_id: light.kitchen_lights
+
+###ACTIONABLE PUSH RESPONSE
+  - id: push_notify_action
+    alias: 'Push Notify Action'
+    initial_state: 'on'
+    trigger:
+      - platform: event
+        event_type: ios.notification_action_fired
+        event_data:
+          actionName: LIGHTSOFF
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.kitchen_lights
