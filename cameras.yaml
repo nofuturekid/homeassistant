@@ -1,0 +1,45 @@
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/front_door
+    name: Front Door
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/carport
+    name: Carport
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/back_door
+    name: Back Door
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/front1
+    name: Front 1
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/front2
+    name: Front 2
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/side
+    name: Side
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/back1
+    name: Back 1
+
+  - platform: mjpeg
+    mjpeg_url: http://10.10.10.106:81/mjpg/back2
+    name: Back 2
+
+#  - platform: usps
+#    scan_interval: 3
+
+  - platform: generic
+    name: Adrian
+    still_image_url: https://maps.googleapis.com/maps/api/staticmap?center={{ states.device_tracker.hass_adrians_iphone.attributes.latitude }},{{ states.device_tracker.hass_adrians_iphone.attributes.longitude }}&zoom=13&size=500x500&maptype=roadmap&markers=color:blue%7Clabel:A%7C{{ states.device_tracker.hass_adrians_iphone.attributes.latitude }},{{ states.device_tracker.hass_adrians_iphone.attributes.longitude }}
+    limit_refetch_to_url_change: true
+
+  - platform: skybell
+
+  - platform: generic
+    name: Weather Radar
+    still_image_url: !secret weatherradar
