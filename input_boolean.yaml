@@ -1,6 +1,6 @@
   gameroom_motion:
     name: Motion detected in Gameroom
-    initial: off
+    initial: off 
 
   carport_motion:
     name: Motion detected by carport
