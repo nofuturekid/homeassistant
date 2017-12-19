@@ -1,0 +1,55 @@
+  camera_view:
+    view: yes
+    name: Cameras
+    entities:
+      - camera.front_door
+      - camera.carport
+      - camera.back_door
+      - camera.front_1
+      - camera.front_2
+      - camera.side
+      - camera.back_1
+      - camera.back_2
+      - camera.front_door_2
+      - group.cameras_scripts_group
+      - group.virtual_cameras_group
+      - group.cameras_automation_group
+      - group.cameras_device_group
+
+  cameras_scripts_group:
+    name: Motion Detection
+    control: hidden
+    entities:
+      - script.notification
+      - script.notification_2
+      - script.firetv_carport_notify
+      - script.firetv_frontdoor_notify
+
+  cameras_automation_group:
+    name: Automations
+    control: hidden
+    entities:
+      - automation.carport__alert
+      - automation.frontdoor__alert
+      - automation.front__alert__open
+      - automation.reset_virtual_cameras
+      - automation.carport__alert__firetv
+      - automation.frontdoor__alert__firetv
+      - automation.outside_floods__motion_detection
+      - automation.turn_off_outside_floods_after_15_minutes
+
+  cameras_device_group:
+    name: Devices
+    control: hidden
+    entities:
+      - sensor.camera_dvr
+
+  virtual_cameras_group:
+    name: Virtual Cameras
+    control: hidden
+    entities:
+      - input_boolean.carport_motion
+      - input_boolean.frontdoor_motion
+      - input_boolean.front1_motion
+      - input_boolean.front2_motion
+      - input_boolean.side_motion

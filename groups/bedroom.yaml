@@ -1,0 +1,53 @@
+  bedroom_view:
+    view: yes
+    name: Bedroom
+    entities:
+      - media_player.bedroom_firetv
+      - group.br_device_group
+      - group.br_firetv_apps
+      - group.br_firetv_controls
+      - group.br_lights_group
+
+  br_firetv_controls:
+    name: Bedroom FireTV Controls
+    control: hidden
+    entities:
+      - script.br_firetv_power
+      - script.br_firetv_home
+      - script.br_firetv_up
+      - script.br_firetv_down
+      - script.br_firetv_left
+      - script.br_firetv_right
+      - script.br_firetv_enter
+      - script.br_firetv_volup
+      - script.br_firetv_voldown
+      - script.br_firetv_next
+      - script.br_firetv_previous
+      - script.br_firetv_play
+
+  br_firetv_apps:
+    name: Bedroom FireTV Apps
+    control: hidden
+    entities:
+      - script.firetv_cameras
+      - script.firetv_pandora
+      - script.firetv_netflix
+      - script.firetv_plex
+      - script.firetv_kodi
+
+  br_device_group:
+    name: Bedroom Devices
+    control: hidden
+    entities:
+      - script.reboot_firetv
+      - sensor.bedroom_firetv
+      - sensor.bedroom_dot
+
+  br_lights_group:
+    name: Bedroom Lights
+    control: hidden
+    entities:
+      - sensor.adrians_bedroom_lamp
+      - input_boolean.bedroom_lamp
+      - sensor.tamaras_bedroom_lamp
+      - input_boolean.bedroom_lamp2

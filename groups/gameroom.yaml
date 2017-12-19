@@ -1,0 +1,161 @@
+  gameroom_view:
+    view: yes
+    name: Gameroom
+    entities:
+      - group.gameroom_lights_group
+      - group.gameroom_device_group
+      - group.gameroom_sensor_group
+      - group.gameroom_projector_group
+      - group.gameroom_avr_card
+      - group.gameroom_ps3_card
+      - group.gameroom_xbox_card
+      - group.gameroom_wii_card
+  
+  gameroom_lights_group:
+    name: Gameroom Lights
+    control: hidden
+    entities:
+      - light.gameroom
+      - input_select.gameroom_light_scenes
+
+  gameroom_sensor_group:
+    name: Gameroom Sensors
+    control: hidden
+    entities:
+      - sensor.gameroom_humidity
+      - sensor.gameroom_temperature
+      - sensor.gameroom_lightlevel
+
+  gameroom_projector_group:
+    name: Gameroom Projector
+    control: hidden
+    entities:
+      - switch.projector
+      - script.projector_menu
+      - script.projector_gama
+      - script.projector_keystone
+      - script.projector_left
+      - script.projector_right
+      - script.projector_up
+      - script.projector_down
+      - script.projector_select
+
+  gameroom_avr_card:
+    name: Gameroom AV Receiver
+    control: hidden
+    entities:
+      - switch.avr
+      - script.avr_menu
+      - script.vol_up
+      - script.vol_down
+      - script.avr_menu
+      - script.avr_ps3_input
+      - script.avr_wii_input
+      - script.avr_xbox_input
+
+  gameroom_ps3_card:
+    name: Gameroom PS3
+    control: hidden
+    entities:
+      - switch.ps3
+      - sensor.ps3
+      - script.ps3_circle
+      - script.ps3_cross
+      - script.ps3_square
+      - script.ps3_triangle
+      - script.ps3_up
+      - script.ps3_down
+      - script.ps3_left
+      - script.ps3_right
+      - script.ps3_eject
+      - script.ps3_zero
+      - script.ps3_one
+      - script.ps3_two
+      - script.ps3_three
+      - script.ps3_four
+      - script.ps3_five
+      - script.ps3_six
+      - script.ps3_seven
+      - script.ps3_eight
+      - script.ps3_nine
+      - script.ps3_rewind
+      - script.ps3_fastforward
+      - script.ps3_menu
+      - script.ps3_l1
+      - script.ps3_l2
+      - script.ps3_l3
+      - script.ps3_r1
+      - script.ps3_r2
+      - script.ps3_r3
+      - script.ps3_select
+      - script.ps3_start
+      - script.ps3_ps
+      - script.ps3_play
+      - script.ps3_pause
+      - script.ps3_stop
+
+  gameroom_xbox_card:
+    name: Gameroom Xbox 360
+    control: hidden
+    entities:
+      - switch.xbox360
+      - sensor.xbox360
+      - script.xbox_eject
+      - script.xbox_menu
+      - script.xbox_0
+      - script.xbox_1
+      - script.xbox_2
+      - script.xbox_3
+      - script.xbox_4
+      - script.xbox_5
+      - script.xbox_6
+      - script.xbox_7
+      - script.xbox_8
+      - script.xbox_9
+      - script.xbox_up
+      - script.xbox_down
+      - script.xbox_left
+      - script.xbox_right
+      - script.xbox_enter
+      - script.xbox_forward
+      - script.xbox_rewind
+      - script.xbox_gamea
+      - script.xbox_gameb
+      - script.xbox_gamex
+      - script.xbox_gamey
+      - script.xbox_guide
+      - script.xbox_mediacenter
+      - script.xbox_pause
+      - script.xbox_play
+      - script.xbox_stop
+
+  gameroom_wii_card:
+    name: Gameroom Wii
+    control: hidden
+    entities:
+      - switch.wii
+      - sensor.wii
+      - script.wii_1
+      - script.wii_2
+      - script.wii_a
+      - script.wii_b
+      - script.wii_up
+      - script.wii_down
+      - script.wii_left
+      - script.wii_right
+      - script.wii_plus
+      - script.wii_minus
+
+  gameroom_scripts_group:
+    name: Gameroom Scripts
+    control: hidden
+    entities:
+      - script.gameroom_off
+
+  gameroom_device_group:
+    name: Gameroom Devices
+    control: hidden
+    entities:
+      - sensor.gameroom_hub
+      - sensor.huehub
+      - sensor.gameroom_sensor

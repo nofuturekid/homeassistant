@@ -1,0 +1,88 @@
+  default_view:
+    view: yes
+    entities:
+      - group.thermostat_group
+      - group.weather_forecast_group
+      - group.bandwidth_sensor_group
+      - script.map_adrian
+      - script.wakeup_plex
+      - switch.wemo_switch
+      - weblink.camera_feed
+      - weblink.pfsense
+      - weblink.plex
+      - weblink.unifi_controller
+      - camera.adrian
+      - camera.weathermap
+      - group.main_scripts_group
+      - group.location_detail_group
+      - automation.notification__nicole_current_location
+      - group.main_device_group
+      - switch.phoneplug
+#      - input_select.thermostat_a_mode
+ #     - input_select.thermostat_b_mode
+      - group.mail_group
+      - input_select.hass_theme
+  
+  main_scripts_group:
+    name: Main Scripts
+    control: hidden
+    entities:
+      - script.tstat_a_set_heat
+      - script.tstat_a_set_cool
+      - script.tstat_b_set_heat
+      - script.tstat_b_set_cool
+
+  main_device_group:
+    name: Devices
+    control: hidden
+    entities:
+      - sensor.adriansiphone
+      - sensor.tamarasiphone
+      - sensor.nicolesiphone
+      - sensor.kaidensgalaxy
+      - sensor.allysonsiphone
+
+  weather_forecast_group:
+    name: Weather Forecast
+    control: hidden
+    entities:
+      - sun.sun
+      - sensor.dark_sky_apparent_temperature
+      - sensor.dark_sky_cloud_coverage
+      - sensor.dark_sky_daily_high_temperature
+      - sensor.dark_sky_daily_low_temperature
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_hourly_summary
+      - sensor.dark_sky_wind_speed
+
+  location_detail_group:
+    name: Location Details
+    control: hidden
+    entities:
+      - device_tracker.hass_adrians_iphone
+
+  bandwidth_sensor_group:
+    name: Network Bandwidth
+    entities:
+      - sensor.speedtest_upload
+      - sensor.fastcom_download
+
+  mail_group:
+    name: "Mail"
+    control: hidden
+    entities:
+      - sensor.usps_mail
+      - sensor.usps_packages
+      - camera.usps_mail
+      - sensor.ups
+      - sensor.fedex
+
+  thermostat_group:
+    name: "Thermostats"
+    control: hidden
+    entities:
+      - climate.thermostat_a
+      - sensor.tstat_a_humidity
+      - climate.thermostat_b
+      - sensor.tstat_b_humidity
+

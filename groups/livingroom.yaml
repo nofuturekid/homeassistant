@@ -1,0 +1,138 @@
+  livingroom_view:
+    view: yes
+    name: Livingroom
+    entities:
+      - group.frontdoor_sensors_group
+      - group.lr_lights_group
+      - group.outside_lights_group
+      - group.livingroom_tv_card
+      - media_player.livingroom_tv
+      - group.lr_bluray_card
+      - group.lr_sb_card
+      - group.lr_cable_card
+      - group.lr_firetv_card
+      - group.lr_firetv_apps
+      - group.lr_device_group
+      - media_player.livingroom_firetv
+
+  lr_device_group:
+    name: Livingroom Devices
+    control: hidden
+    entities:
+      - sensor.livingroom_hub
+      - sensor.livingroom_dot
+      - sensor.livingroom_ir_blaster
+      - sensor.lifx_z
+      - sensor.skybell
+
+  lr_lights_group:
+    name: Livingroom Lights
+    control: hidden
+    entities:
+      - light.livingroom_dimmer
+      - input_number.lr_dimmer
+      - light.tvlights
+      - light.livingroom_fan
+
+  outside_lights_group:
+    name: Outside Lights
+    control: hidden
+    entities:
+      - light.front_outside_floodlights
+      - switch.halloween_lights
+
+  lr_firetv_apps:
+    name: Livingroom FireTV Apps
+    control: hidden
+    entities:
+      - script.lr_firestick_kodi
+      - script.lr_firestick_netflix
+      - script.lr_firestick_pandora
+      - script.lr_firestick_plex
+
+  lr_firetv_card:
+    name: Livingroom FireTV
+    control: hidden
+    entities:
+      - sensor.lr_firetv
+      - script.lr_firestick_home
+      - script.lr_firestick_next
+      - script.lr_firestick_previous
+      - script.lr_firestick_play
+      - script.lr_firestick_pause
+
+  lr_cable_card:
+    name: Livingroom Cablebox
+    control: hidden
+    entities:
+      - script.cable_on_off
+      - script.cable_play
+      - script.cable_pause
+      - script.cable_record
+      - script.cable_rewind
+      - script.cable_forward
+      - script.turnonnick
+      - script.turnonespn
+      - script.turnondisney
+      - script.turnonkwtx
+      - script.turnonhbo
+
+  lr_sb_card:
+    name: Livingroom Soundbar
+    control: hidden
+    entities:
+      - script.soundbar_on_off
+      - script.soundbar_power_bt
+      - script.soundbar_bt_input
+      - script.soundbar_input_scroll
+      - script.soundbar_volup
+      - script.soundbar_voldown
+
+  lr_bluray_card:
+    name: Livingroom Bluray
+    control: hidden
+    entities:
+      - sensor.bluray
+      - switch.lr_bluray
+      - script.bluray_play
+      - script.bluray_pause
+
+  livingroom_tv_card:
+    name: Livingroom TV
+    control: hidden
+    entities:
+      - sensor.livingroomtv
+      - switch.livingroomtv
+      - script.tv_home
+      - script.tv_menu
+      - script.tv_pause
+      - script.tv_play
+      - script.tv_input_hdmi4
+      - script.tv_input_hdmi3
+      - script.tv_input_hdmi2
+      - script.tv_input_hdmi1
+      - script.tv_volume_zero
+      - script.tv_sound_to_sb
+      - script.tv_sound_to_tv
+      - script.tv_volup
+      - script.tv_voldown
+      - script.tv_up
+      - script.tv_down
+      - script.tv_left
+      - script.tv_right
+      - script.tv_enter
+      - script.tv_next
+      - script.tv_previous
+      - script.tv_play
+      - script.tv_3d
+      - script.tv_exit
+      - script.lr_mute
+      - script.goodnight_lr
+
+  frontdoor_sensors_group:
+    name: Front Door Sensors
+    entities:
+      - sensor.front_door
+      - sensor.front_door_knock
+      - sensor.front_door_temperature
+      - sensor.front_door_battery

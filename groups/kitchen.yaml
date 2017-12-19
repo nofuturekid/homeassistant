@@ -1,0 +1,43 @@
+  kitchen_view:
+    view: yes
+    name: Kitchen
+    entities:
+      - group.kitchen_lights_group
+      - group.kitchen_roku_apps
+      - group.kitchen_roku_card
+      - media_player.roku_18g379048312
+      - group.kitchen_tv_card
+
+  kitchen_roku_apps:
+    name: Kitchen Roku Apps
+    control: hidden
+    entities:
+      - script.kitchen_roku_netflix
+      - script.kitchen_roku_plex
+      - script.kitchen_roku_cable
+      - script.kitchen_roku_pandora
+
+  kitchen_lights_group:
+    name: Kitchen Lights
+    control: hidden
+    entities:
+      - light.kitchen_lights
+
+  kitchen_roku_card:
+    name: Kitchen Roku
+    control: hidden
+    entities:
+      - sensor.kitchen_roku
+      - script.kitchen_roku_play
+      - script.kitchen_roku_pause
+      - script.kitchen_roku_prev
+      - script.kitchen_roku_next
+
+  kitchen_tv_card:
+    name: Kitchen TV
+    control: hidden
+    entities:
+      - switch.kitchentv
+      - script.kitchen_tv_volup
+      - script.kitchen_tv_voldown
+      - script.kitchen_tv_mute

@@ -1,0 +1,14 @@
+  nicole_scripts_group:
+    name: "Nicole's Scripts"
+    control: hidden
+    entities:
+      - script.shutdown_nics_comp
+      - script.reboot_nics_comp
+
+  nicole_device_group:
+    name: "Nicole's Devices"
+    control: hidden
+    entities:
+      - sensor.nicoles_mac
+      - sensor.nicoles_chromebook
+      - sensor.nicolesiphone

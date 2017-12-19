@@ -1,0 +1,102 @@
+  office_view:
+    view: yes
+    name: "Office"
+    entities:
+      - group.glasses_server_card
+      - group.unifi_server_card
+      - group.plex_server_card
+      - group.mac_pro_server_card
+      - group.jarvis_card
+      - group.vm_server_card
+      - group.office_device_group
+      - group.office_automations_group
+      - script.mail_alert_0
+      - script.mail_alert_1
+      - script.mail_alert_2
+      - script.mail_alert_3
+      - script.mail_alert_4
+      - script.mail_alert_5
+      - script.mail_alert_6
+      - script.test_test
+
+  glasses_server_card:
+    name: Glasses
+    control: hidden
+    entities:
+      - sensor.glasses
+      - sensor.glasses_cpu
+      - script.reboot_glasses
+  
+  unifi_server_card:
+    name: Unifi
+    control: hidden
+    entities:
+      - sensor.unifi
+      - sensor.unifi_cpu
+      - sensor.ap1
+      - sensor.ap2
+      - script.reboot_unifi
+
+  plex_server_card:
+    name: Plex
+    control: hidden
+    entities:
+      - sensor.plex
+      - sensor.plex_cpu
+      - script.reboot_plex
+
+  mac_pro_server_card:
+    name: Mac Pro
+    control: hidden
+    entities:
+      - sensor.main_mac
+      - sensor.mac_pro_cpu
+      - script.reboot_macpro
+
+  jarvis_card:
+    name: Jarvis
+    control: hidden
+    entities:
+      - sensor.cpu_used
+      - script.reboot_jarvis
+      - binary_sensor.mqtt_server
+      - script.reset_mqtt
+      - binary_sensor.hadashboard
+      - script.start_hadashboard
+      - script.reset_hass
+      - binary_sensor.homebridge
+      - script.reset_homebridge
+      - binary_sensor.dasher
+      - script.reset_dasher
+      - binary_sensor.firetv_server
+      - script.reboot_firetv
+
+  vm_server_card:
+    name: 'VM Server'
+    control: hidden
+    entities:
+      - sensor.plex2
+      - sensor.vm_server_cpu
+
+  office_device_group:
+    name: Office Devices
+    control: hidden
+    entities:
+      - sensor.office_printer
+      - sensor.apple_home_hub
+
+  office_automations_group:
+    name: Office Automations
+    control: hidden
+    entities:
+      - automation.jarvis_cpu_alert
+      - automation.plex_cpu_alert
+      - automation.macpro_cpu_alert
+      - automation.glasses_cpu_alert
+      - automation.unifi_cpu_alert
+      - automation.mqtt_alert
+      - automation.hadashboard_alert
+      - automation.homebridge_alert
+      - automation.dasher_alert
+      - automation.firetv_alert
+      - automation.apple_home_hub_alert
