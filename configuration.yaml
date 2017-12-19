@@ -160,10 +160,10 @@ camera: !include cameras.yaml
 binary_sensor: !include binary_sensor.yaml
 input_boolean: !include input_boolean.yaml
 input_select:  !include input_select.yaml
-intent_script: !include alexa.yaml
+intent_script: !include_dir_merge_named alexa_intents
 light: !include light.yaml
 shell_command: !include shell_command.yaml
-group: !include_dir_merge_named group_configs
+group: !include_dir_merge_named groups
 automation: !include automations.yaml
 remote:  !include remote.yaml
 script: !include_dir_merge_named script_configs
